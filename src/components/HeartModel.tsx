@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
 import type { GLTF } from 'three-stdlib';
 
+const HEART_MODEL_SRC = `${import.meta.env.BASE_URL}heart.glb`;
+
 type GLTFResult = GLTF & {
   nodes: {
     Object_2: THREE.Mesh;
@@ -25,76 +27,26 @@ interface Props {
 }
 
 function HeartModel(props : Props) {
-  const { nodes, materials } = useGLTF('/heart.glb') as unknown as GLTFResult;
+  const { nodes, materials } = useGLTF(HEART_MODEL_SRC) as unknown as GLTFResult;
 
   return (
     <group dispose={null} {...props}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_2.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_3.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_4.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_5.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_6.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_7.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_8.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_9.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_10.geometry}
-          material={materials.material_0}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_11.geometry}
-          material={materials.material_0}
-        />
+        <mesh castShadow receiveShadow geometry={nodes.Object_2.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_3.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_4.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_5.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_6.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_7.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_8.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_9.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_10.geometry} material={materials.material_0} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_11.geometry} material={materials.material_0} />
       </group>
     </group>
   )
 }
 
-useGLTF.preload('/heart.glb')
+useGLTF.preload(HEART_MODEL_SRC)
 
 export default HeartModel;

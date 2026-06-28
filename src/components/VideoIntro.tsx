@@ -1,7 +1,9 @@
 import { Play } from "lucide-react";
 import { useRef, useState } from "react";
 
-const HERO_VIDEO_SRC = "/hero-video.mp4";
+const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const HERO_VIDEO_SRC = assetPath("hero-video.mp4");
+const HERO_POSTER_SRC = assetPath("video-poster.jpg");
 
 export default function VideoIntro() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -34,7 +36,7 @@ export default function VideoIntro() {
           ref={videoRef}
           className="absolute inset-0 z-0 h-full w-full object-cover"
           src={HERO_VIDEO_SRC}
-          poster="/video-poster.jpg"
+          poster={HERO_POSTER_SRC}
           playsInline
           muted
           loop
